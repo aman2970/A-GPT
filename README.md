@@ -10,6 +10,6 @@ To use the code just replace the api key with yours in the header while making a
 
 <br>
 <br>
-<H3><b>#CHAT SCREEN/b></H3>
+<H3><b>#CHAT SCREEN</b></H3>
 <img src="https://user-images.githubusercontent.com/94138681/243945241-5f4f07de-cb6e-4366-b31f-fbcec1501a44.jpg" width="150"/>
   
