@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -43,18 +45,23 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         messageList = new ArrayList<>();
 
         binding.sendButton.setOnClickListener(v -> {
-            String question = Objects.requireNonNull(binding.chatEt.getText()).toString().trim();
-            addToChat(question,Message.SENT_BY_ME);
-            binding.chatEt.setText("");
-            callAPI(question);
+            if(Objects.requireNonNull(binding.chatEt.getText()).toString().isEmpty()){
+                Toast.makeText(this, "Type something first", Toast.LENGTH_SHORT).show();
+
+            }else{
+                String question = Objects.requireNonNull(binding.chatEt.getText()).toString().trim();
+                Vibrator vibe = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibe.vibrate(300);
+                addToChat(question,Message.SENT_BY_ME);
+                binding.chatEt.setText("");
+                callAPI(question);
+            }
         });
 
         binding.chatRv.setLayoutManager(new LinearLayoutManager(this));
@@ -90,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/completions")
-                .header("Authorization","Bearer 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")
+                .header("Authorization","Bearer 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")
                 .post(body)
                 .build();
 
