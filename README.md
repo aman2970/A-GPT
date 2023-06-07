@@ -6,7 +6,7 @@ To use the code just replace the api key with yours in the header while making a
 <br>
 <br>
 <H3><b>#SPLASH SCREEN</b></H3>
-<img src="https://user-images.githubusercontent.com/94138681/243945260-f1b88c51-07c7-4895-aca5-ae" width="150"/>
+<img src="https://user-images.githubusercontent.com/94138681/243945260-f1b88c51-07c7-4895-aca5-ae0688730141.jpg" width="150"/>
 
 <br>
 <br>
